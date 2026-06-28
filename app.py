@@ -16,21 +16,6 @@ try:
 except ImportError:
     pass
 
-# ============================================
-# ngrok 터널 설정 (자동 외부 접속)
-# ============================================
-try:
-    from pyngrok import ngrok
-    ngrok_token = os.getenv("NGROK_AUTH_TOKEN", "")
-    if ngrok_token:
-        ngrok.set_auth_token(ngrok_token)
-        public_url = ngrok.connect(8501)
-        print(f"\n✅ ngrok 터널 활성화!")
-        print(f"🌐 외부 접속 URL: {public_url}")
-        print(f"💡 이 URL을 휴대폰 브라우저에 입력하면 어디서나 접속 가능!\n")
-except Exception as e:
-    print(f"⚠️ ngrok 자동 연결 실패: {e}")
-    print("💡 .env 파일에 NGROK_AUTH_TOKEN이 있는지 확인하세요.\n")
 
 # ============================================
 # 한글 폰트 설정
